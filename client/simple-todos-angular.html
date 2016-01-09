@@ -2,14 +2,13 @@
   <title>Todo List</title>
 </head>
 
-<body>
+<body ng-app="simple-todos" ng-strict-di="">
   <div class="container"
-     ng-app="simple-todos"
-     ng-controller="TodosListCtrl">
+     ng-controller="TodosListCtrl as vm">
 
     <header>
       <h1>Todo List ( {{ incompleteCount() }} )</h1>
-
+      <h2>Welcome {{ $auth.currentUser.username }}</h2>
       <label class="hide-completed">
         <input type="checkbox" ng-model="hideCompleted"/>
         Hide Completed Tasks
@@ -27,26 +26,7 @@
     
     </header>
  
-    <ul>
-      <li ng-repeat="task in tasks"
-        ng-class="{'checked': task.checked, 'private': task.private}">
-        <button class="delete" ng-if="task.owner === $auth.currentUser._id" ng-click="deleteTask(task)">&times;</button>
- 
-        <input type="checkbox" ng-checked="task.checked"
-             ng-click="setChecked(task)" class="toggle-checked" />
-        
-        <button class="toggle-private"
-              ng-if="task.owner === $auth.currentUser._id"
-              ng-click="setPrivate(task)">
-          {{task.private == true ? "Private" : "Public"}}
-        </button>
-
-        <span class="text">
-          <strong>{{task.username}}</strong> - {{task.text}}
-        </span>
- 
-      </li>
-    </ul>
+    <todos-list></todos-list>
 
   </div>
 

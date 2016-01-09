@@ -55,3 +55,11 @@
       };
  
     }]);
+
+angular.module('simple-todos').directive('todosList', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'client/components/todos-list.html',
+      controllerAs: 'TodosListCtrl'
+    }
+  });
