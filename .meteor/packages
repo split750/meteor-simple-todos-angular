@@ -18,3 +18,4 @@ angular
 accounts-password
 dotansimha:accounts-ui-angular
 angular-meteor-auth
+angularui:angular-ui-router

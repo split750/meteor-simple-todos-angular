@@ -6,7 +6,7 @@
   });
 
 
-  angular.module('simple-todos',['angular-meteor', 'accounts.ui', 'angular-meteor.auth']);
+  angular.module('simple-todos',['angular-meteor', 'accounts.ui', 'angular-meteor.auth', 'ui.router']);
   
   angular.module('simple-todos').controller('TodosListCtrl', ['$scope', '$meteor', '$reactive',
     function ($scope, $meteor, $reactive) {
