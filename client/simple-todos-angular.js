@@ -6,9 +6,21 @@
   });
 
 
-  angular.module('simple-todos',['angular-meteor', 'accounts.ui', 'angular-meteor.auth', 'ui.router']);
+angular.module('simple-todos',['angular-meteor', 'accounts.ui', 'angular-meteor.auth', 'ui.router']);
   
-  angular.module('simple-todos').controller('TodosListCtrl', ['$scope', '$meteor', '$reactive',
+function onReady() {
+  angular.bootstrap(document, ['socially'], {
+    strictDi: true
+  });
+}
+ 
+if (Meteor.isCordova)
+  angular.element(document).on("deviceready", onReady);
+else
+  angular.element(document).ready(onReady);
+
+
+angular.module('simple-todos').controller('TodosListCtrl', ['$scope', '$meteor', '$reactive',
     function ($scope, $meteor, $reactive) {
 
       $reactive(this).attach($scope);
